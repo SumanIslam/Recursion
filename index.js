@@ -90,9 +90,31 @@
 // // factorial(4);
 // console.log(factorial(4));
 
-// Reverse an array using recursion
-// --------------------------------
-const array = [5,3,1,2,7];
+// Reverse an array using recursion with two pointer(l,f)
+// ------------------------------------------------------
+// const array = [5,3,1,2,7];
+// const n = array.length;
+
+// function swapElementOfArray(array,a,b) {
+//   array[a] = array[a]+array[b];
+//   array[b] = array[a]-array[b];
+//   array[a]= array[a]-array[b];
+//   return array;
+// }
+
+// function arrayReverse(array,l,r) {
+//   if(l>=r) return;
+//   swapElementOfArray(array,l,r);
+//   arrayReverse(array,l+1,r-1);
+// }
+
+// console.log('Original Array: ', array);
+// arrayReverse(array,0,n-1);
+// console.log('Reversed Array: ', array);
+
+// Reverse an array using recursion with only one pointer
+// ------------------------------------------------------
+const array = [5,3,1,2,7,8];
 const n = array.length;
 
 function swapElementOfArray(array,a,b) {
@@ -102,12 +124,12 @@ function swapElementOfArray(array,a,b) {
   return array;
 }
 
-function arrayReverse(array,l,r) {
-  if(l>=r) return;
-  swapElementOfArray(array,l,r);
-  arrayReverse(array,l+1,r-1);
+function arrayReverse(array,n,i) {
+  if(i>=Math.floor(n/2)) return;
+  swapElementOfArray(array,i,n-i-1);
+  arrayReverse(array,n,i+1);
 }
 
 console.log('Original Array: ', array);
-arrayReverse(array,0,n-1);
+arrayReverse(array,n,0);
 console.log('Reversed Array: ', array);
