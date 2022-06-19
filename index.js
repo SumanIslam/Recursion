@@ -81,11 +81,33 @@
 
 // find factorial of 'N' using recursion
 // -------------------------------------
-function factorial(n) {
-  if(n==0 || n==1) return 1;
+// function factorial(n) {
+//   if(n==0 || n==1) return 1;
 
-  return n * factorial(n-1);
+//   return n * factorial(n-1);
+// }
+
+// // factorial(4);
+// console.log(factorial(4));
+
+// Reverse an array using recursion
+// --------------------------------
+const array = [5,3,1,2,7];
+const n = array.length;
+
+function swapElementOfArray(array,a,b) {
+  array[a] = array[a]+array[b];
+  array[b] = array[a]-array[b];
+  array[a]= array[a]-array[b];
+  return array;
 }
 
-// factorial(4);
-console.log(factorial(4))
+function arrayReverse(array,l,r) {
+  if(l>=r) return;
+  swapElementOfArray(array,l,r);
+  arrayReverse(array,l+1,r-1);
+}
+
+console.log('Original Array: ', array);
+arrayReverse(array,0,n-1);
+console.log('Reversed Array: ', array);
