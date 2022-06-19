@@ -33,12 +33,24 @@
 
 // print number from 'ONE' to 'N' using BackTracking
 // -------------------------------------------------
-function printFromOneToN_BrackTracking(i,n) {
-  if (i<1) return;
+// function printFromOneToN_BrackTracking(i,n) {
+//   if (i<1) return;
 
-  printFromOneToN_BrackTracking(i-1, n);
+//   printFromOneToN_BrackTracking(i-1, n);
+
+//   console.log(i)
+// }
+
+// printFromOneToN_BrackTracking(10,10);
+
+// print number from 'N' to 'ONE' using BackTracking
+// -------------------------------------------------
+function printFromNToOne_BrackTracking(i,n) {
+  if (i>n) return;
+
+  printFromNToOne_BrackTracking(i+1, n);
 
   console.log(i)
 }
 
-printFromOneToN_BrackTracking(10,10);
+printFromNToOne_BrackTracking(1,10);
