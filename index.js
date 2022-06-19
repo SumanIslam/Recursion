@@ -57,24 +57,35 @@
 
 // print sum of 'N' numbers using parameterized recursion
 // ------------------------------------------------------
-function parameterizedRecursion(i, sum) {
-  if(i<1) {
-    console.log(sum);
-    return;
-  }
+// function parameterizedRecursion(i, sum) {
+//   if(i<1) {
+//     console.log(sum);
+//     return;
+//   }
 
-  parameterizedRecursion(i-1, sum+i);
-}
+//   parameterizedRecursion(i-1, sum+i);
+// }
 
-parameterizedRecursion(3,0);
+// parameterizedRecursion(3,0);
 
 // print sum of 'N' numbers using functional recursion
-// ------------------------------------------------------
-function sum(n) {
-  if(n==0) return 0;
+// ---------------------------------------------------
+// function sum(n) {
+//   if(n==0) return 0;
 
-  return n + sum(n-1);
+//   return n + sum(n-1);
+// }
+
+// // sum(3);
+// console.log(sum(3));
+
+// find factorial of 'N' using recursion
+// -------------------------------------
+function factorial(n) {
+  if(n==0 || n==1) return 1;
+
+  return n * factorial(n-1);
 }
 
-// sum(3);
-console.log(sum(3));
+// factorial(4);
+console.log(factorial(4))
