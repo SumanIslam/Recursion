@@ -12,11 +12,21 @@
 
 // print number from 'ONE' to 'N' using recursion
 // ----------------------------------------------
-function printFromOneToN(i,n) {
-  if(i > n) return;
+// function printFromOneToN(i,n) {
+//   if(i > n) return;
 
-  console.log(i);
-  printFromOneToN(i+1, n);
+//   console.log(i);
+//   printFromOneToN(i+1, n);
+// }
+
+// printFromOneToN(1,5);
+
+// print number from 'N' to 'ONE' using recursion
+// ----------------------------------------------
+function printFromNToONe(i, n) {
+  if(n < i) return;
+  console.log(n);
+  printFromNToONe(i, n-1);
 }
 
-printFromOneToN(1,5);
+printFromNToONe(1,10);
