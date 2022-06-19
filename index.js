@@ -45,12 +45,36 @@
 
 // print number from 'N' to 'ONE' using BackTracking
 // -------------------------------------------------
-function printFromNToOne_BrackTracking(i,n) {
-  if (i>n) return;
+// function printFromNToOne_BrackTracking(i,n) {
+//   if (i>n) return;
 
-  printFromNToOne_BrackTracking(i+1, n);
+//   printFromNToOne_BrackTracking(i+1, n);
 
-  console.log(i)
+//   console.log(i)
+// }
+
+// printFromNToOne_BrackTracking(1,10);
+
+// print sum of 'N' numbers using parameterized recursion
+// ------------------------------------------------------
+function parameterizedRecursion(i, sum) {
+  if(i<1) {
+    console.log(sum);
+    return;
+  }
+
+  parameterizedRecursion(i-1, sum+i);
 }
 
-printFromNToOne_BrackTracking(1,10);
+parameterizedRecursion(3,0);
+
+// print sum of 'N' numbers using functional recursion
+// ------------------------------------------------------
+function sum(n) {
+  if(n==0) return 0;
+
+  return n + sum(n-1);
+}
+
+// sum(3);
+console.log(sum(3));
