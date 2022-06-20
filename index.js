@@ -137,32 +137,42 @@
 // find palindrom using recursion (1st approach)
 // ---------------------------------------------
 
-function swapElementOfArray(array,a,b) {
-  let temp = array[a];
-  array[a] = array[b];
-  array[b] = temp;
+// function swapElementOfArray(array,a,b) {
+//   let temp = array[a];
+//   array[a] = array[b];
+//   array[b] = temp;
   
-  return array;
+//   return array;
+// }
+
+// function arrayReverse(array,n,i) {
+//   if(i>=Math.floor(n/2)) return;
+//   swapElementOfArray(array,i,n-i-1);
+//   arrayReverse(array,n,i+1);
+//   return array;
+// }
+
+// function isPalindrom(string) {
+//   const stringArray = string.split('');
+//   const n = stringArray.length;
+//   const newArray = arrayReverse(stringArray, n, 0);
+//   const newString = newArray.join('');
+
+//   if(newString == string) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+// console.log(isPalindrom('madam'));
+
+// find palindrom using recursion (2nd approach)
+// ---------------------------------------------
+function isPalindrom(s,i) {
+  if(i >= Math.floor(s.length)) return true;
+  if(s[i] != s[s.length-i-1]) return false;
+  return isPalindrom(s, i+1);
 }
 
-function arrayReverse(array,n,i) {
-  if(i>=Math.floor(n/2)) return;
-  swapElementOfArray(array,i,n-i-1);
-  arrayReverse(array,n,i+1);
-  return array;
-}
-
-function isPalindrom(string) {
-  const stringArray = string.split('');
-  const n = stringArray.length;
-  const newArray = arrayReverse(stringArray, n, 0);
-  const newString = newArray.join('');
-
-  if(newString == string) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-console.log(isPalindrom('madam'));
+console.log(isPalindrom('mascm',0))
