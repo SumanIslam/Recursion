@@ -114,13 +114,34 @@
 
 // Reverse an array using recursion with only one pointer
 // ------------------------------------------------------
-const array = [5,3,1,2,7,8];
-const n = array.length;
+// const array = [5,3,1,2,7,8];
+// const n = array.length;
+
+// function swapElementOfArray(array,a,b) {
+//   array[a] = array[a]+array[b];
+//   array[b] = array[a]-array[b];
+//   array[a]= array[a]-array[b];
+//   return array;
+// }
+
+// function arrayReverse(array,n,i) {
+//   if(i>=Math.floor(n/2)) return;
+//   swapElementOfArray(array,i,n-i-1);
+//   arrayReverse(array,n,i+1);
+// }
+
+// console.log('Original Array: ', array);
+// arrayReverse(array,n,0);
+// console.log('Reversed Array: ', array);
+
+// find palindrom using recursion (1st approach)
+// ---------------------------------------------
 
 function swapElementOfArray(array,a,b) {
-  array[a] = array[a]+array[b];
-  array[b] = array[a]-array[b];
-  array[a]= array[a]-array[b];
+  let temp = array[a];
+  array[a] = array[b];
+  array[b] = temp;
+  
   return array;
 }
 
@@ -128,8 +149,20 @@ function arrayReverse(array,n,i) {
   if(i>=Math.floor(n/2)) return;
   swapElementOfArray(array,i,n-i-1);
   arrayReverse(array,n,i+1);
+  return array;
 }
 
-console.log('Original Array: ', array);
-arrayReverse(array,n,0);
-console.log('Reversed Array: ', array);
+function isPalindrom(string) {
+  const stringArray = string.split('');
+  const n = stringArray.length;
+  const newArray = arrayReverse(stringArray, n, 0);
+  const newString = newArray.join('');
+
+  if(newString == string) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(isPalindrom('madam'));
