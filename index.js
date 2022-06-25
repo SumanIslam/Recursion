@@ -179,22 +179,33 @@
 
 // creating fibonacci of n numbers (iterative aproach)
 // ---------------------------------------------------
-function createFibonacci(n) {
-  let first = 0;
-  let second = 1;
-  let sum=0;
-  let i;
-  for(i=0; i<=n; i++) {
-    if(i<=1) {
-      sum = i;
-    } else {
-      sum = first + second;
-      first = second;
-      second = sum;
-    }
-    console.log(sum);
+// function createFibonacci(n) {
+//   let first = 0;
+//   let second = 1;
+//   let sum=0;
+//   let i;
+//   for(i=0; i<=n; i++) {
+//     if(i<=1) {
+//       sum = i;
+//     } else {
+//       sum = first + second;
+//       first = second;
+//       second = sum;
+//     }
+//     console.log(sum);
+//   }
+// }
+
+// createFibonacci(12);
+
+// finding value of nth fibonacci numbers (recursion aproach)
+// ----------------------------------------------------------
+function findFibonacci(n) {
+  if(n<=1) {
+    return n;
   }
+
+  return findFibonacci(n-1) + findFibonacci(n-2);
 }
 
-createFibonacci(12);
-
+console.log(findFibonacci(8));
