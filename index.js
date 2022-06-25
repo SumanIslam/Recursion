@@ -169,10 +169,32 @@
 
 // find palindrom using recursion (2nd approach)
 // ---------------------------------------------
-function isPalindrom(s,i) {
-  if(i >= Math.floor(s.length)) return true;
-  if(s[i] != s[s.length-i-1]) return false;
-  return isPalindrom(s, i+1);
+// function isPalindrom(s,i) {
+//   if(i >= Math.floor(s.length)) return true;
+//   if(s[i] != s[s.length-i-1]) return false;
+//   return isPalindrom(s, i+1);
+// }
+
+// console.log(isPalindrom('mascm',0));
+
+// creating fibonacci of n numbers (iterative aproach)
+// ---------------------------------------------------
+function createFibonacci(n) {
+  let first = 0;
+  let second = 1;
+  let sum=0;
+  let i;
+  for(i=0; i<=n; i++) {
+    if(i<=1) {
+      sum = i;
+    } else {
+      sum = first + second;
+      first = second;
+      second = sum;
+    }
+    console.log(sum);
+  }
 }
 
-console.log(isPalindrom('mascm',0))
+createFibonacci(12);
+
