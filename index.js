@@ -200,12 +200,32 @@
 
 // finding value of nth fibonacci numbers (recursion aproach)
 // ----------------------------------------------------------
-function findFibonacci(n) {
-  if(n<=1) {
-    return n;
-  }
+// function findFibonacci(n) {
+//   if(n<=1) {
+//     return n;
+//   }
 
-  return findFibonacci(n-1) + findFibonacci(n-2);
+//   return findFibonacci(n-1) + findFibonacci(n-2);
+// }
+
+// console.log(findFibonacci(8));
+
+// finding subsequences of an array (iterative aproach)
+// ----------------------------------------------------
+function f1(array) {
+  const n = array.length;
+  const limit = 2**n - 1;
+  let i,j;
+
+  for(i=0; i<limit; i++) {
+    let subSequences = [];
+    for(j=0; j<n; j++) {
+      if(i & (1<<j)) {
+        subSequences.push(array[j]);
+      }
+    }
+    console.log(subSequences)
+  }
 }
 
-console.log(findFibonacci(8));
+f1([3,1,2]);
