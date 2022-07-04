@@ -212,20 +212,35 @@
 
 // finding subsequences of an array (iterative aproach)
 // ----------------------------------------------------
-function f1(array) {
-  const n = array.length;
-  const limit = 2**n - 1;
-  let i,j;
+// function f1(array) {
+//   const n = array.length;
+//   const limit = 2**n - 1;
+//   let i,j;
 
-  for(i=0; i<limit; i++) {
-    let subSequences = [];
-    for(j=0; j<n; j++) {
-      if(i & (1<<j)) {
-        subSequences.push(array[j]);
-      }
-    }
-    console.log(subSequences)
+//   for(i=0; i<limit; i++) {
+//     let subSequences = [];
+//     for(j=0; j<n; j++) {
+//       if(i & (1<<j)) {
+//         subSequences.push(array[j]);
+//       }
+//     }
+//     console.log(subSequences)
+//   }
+// }
+
+// f1([3,1,2]);
+
+// finding subsequences of an array (recursion aproach)
+// ----------------------------------------------------
+function f1(index, subsequenceArray, array, n) {
+  if(index >=n) {
+    console.log(subsequenceArray);
+    return;
   }
+  subsequenceArray.push(array[index]);
+  f1(index+1, subsequenceArray, array, n);
+  subsequenceArray.pop();
+  f1(index+1, subsequenceArray, array, n);
 }
 
-f1([3,1,2]);
+f1(0,[],[3,1,2], 3);
